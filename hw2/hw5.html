@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        'use strict';
+
+        function sum(a,b) {
+            return a + b;
+        }
+
+        function difference(a,b) {
+            return a - b;
+        }
+
+        function composition(a,b) {
+            return a * b;
+        }
+
+        function division(a,b) {
+            return a / b;
+        }
+
+        function mathOperation(arg1, arg2, my_operation) {
+            switch (my_operation) {
+            case 'сумма':
+                return sum(arg1,arg2);
+            case 'разность':
+                return difference(arg1,arg2);
+            case 'произведение':
+                return composition(arg1,arg2);
+            case 'деление':
+                return division(arg1,arg2);
+            default:
+                return 'такой операции нет'
+        }
+        }
+
+        let my_operation = prompt('Введите название операции')
+        let a = Number(prompt('Введите первое число'))
+        let b = Number(prompt('Введите второе число'))
+
+        alert(mathOperation(a,b, my_operation))
+
+    </script>
+
+</body>
+</html>
