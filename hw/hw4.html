@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        'use strict';
+
+        const products = [
+            {
+                id: 3,
+                price: 127,
+                photos: [
+                    "1.jpg",
+                    "2.jpg",
+                ]
+            },
+            {
+                id: 5,
+                price: 499,
+                photos: []
+            },
+            {
+                id: 10,
+                price: 26,
+                photos: [
+                    "3.jpg"
+                ]
+            },
+            {
+                id: 8,
+                price: 78,
+            },
+        ];
+
+        let result_photo = products.filter(el => ('photos' in el && el['photos'].length !== 0))
+        let result_sort = products.sort(function(a, b) {
+            if (a['price'] > b['price']) {
+                    return 1;
+                }
+
+            if (a['price'] <= b['price']) {
+                return -1;
+            }
+
+        })
+        console.log(result_sort)
+        console.log(result_photo)
+    </script>
+
+</body>
+</html>
