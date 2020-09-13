@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        'use strict';
+        class Main {
+
+                constructor(number) {
+                    this.number = number;
+                    if (Number.isInteger(this.number) && this.number < 1000 && this.number >= 0 ) {
+                        this.units = number % 10;
+                        this.tens = Math.floor((number % 100) / 10);
+                        this.hundreds = Math.floor(number / 100);
+                    }
+                    else {
+                        console.log('Nope')
+                        this.number = undefined
+                    }
+            }
+        }
+
+        let user = new Main(-1);
+
+
+    </script>
+
+</body>
+</html>
