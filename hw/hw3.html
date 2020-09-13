@@ -9,22 +9,60 @@
     <script>
         'use strict';
 
-        const products = [
-            {
-                id: 3,
-                price: 200,
-            },
-            {
-                id: 4,
-                price: 900,
-            },
-            {
-                id: 1,
-                price: 1000,
-            },
-        ];
+        function Post1(author,text,date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+            this.edit = function(text) {
+                this.text = this.text + ' ' + text;
+            }
+        }
 
-        products.forEach(element => element['price'] = element['price'] * 0.85);
+        let post1 = new Post1('Рей', 'огонь', '27.01.1998')
+        post1.edit('451')
+        console.log(post1)
+
+        function AttachedPost1(author,text,date) {
+            Post1.call(this, author, text, date);
+            this.highlighted = 'False'
+            this.makeTextHighlighted = function() {
+                this.highlighted = 'True'
+            }
+        }
+
+        let attachedpost1 = new AttachedPost1('Рей', 'огонь', '27.01.1998')
+        attachedpost1.makeTextHighlighted()
+        console.log(attachedpost1)
+
+        class Post2{
+            constructor(author,text,date){
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+
+            edit(text) {
+                this.text = this.text + ' ' + text;
+            }
+        }
+        let post2 = new Post2('Рей', 'огонь', '27.01.1998')
+        post2.edit('451')
+        console.log(post2)
+
+        class AttachedPost2 extends Post2{
+            constructor(author,text,date) {
+                super(author,text,date)
+                this.highlighted = 'False'
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = 'True'
+            }
+        }
+
+        let attachedpost2 = new AttachedPost2('Рей', 'огонь', '27.01.1998')
+        attachedpost2.makeTextHighlighted()
+        console.log(attachedpost2)
 
     </script>
 

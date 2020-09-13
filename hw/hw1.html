@@ -8,19 +8,24 @@
 
     <script>
         'use strict';
+        class Main {
 
-        for (let x = 0; x <= 10; x++){
-            if (x === 0){
-                alert(x + ' это ноль');
+                constructor(number) {
+                    this.number = number;
+                    if (Number.isInteger(this.number) && this.number < 1000 && this.number >= 0 ) {
+                        this.units = number % 10;
+                        this.tens = Math.floor((number % 100) / 10);
+                        this.hundreds = Math.floor(number / 100);
+                    }
+                    else {
+                        console.log('Nope')
+                        this.number = undefined
+                    }
             }
-            else if (x % 2 === 1) {
-                alert(x + ' это нечетное число')
-            }
-            else if (x % 2 === 0) {
-                alert(x + ' это четное число')
-            }
-
         }
+
+        let user = new Main(-1);
+
 
     </script>
 
